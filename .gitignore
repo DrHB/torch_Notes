@@ -5,6 +5,7 @@ __pycache__/
 
 #my personal
 data/
+models.ai
 
 # C extensions
 *.so
