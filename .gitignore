@@ -6,6 +6,7 @@ __pycache__/
 #my personal
 data/
 models.ai
+2_CNN_torch.ipynb
 
 # C extensions
 *.so
