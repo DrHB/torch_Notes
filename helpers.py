@@ -2,7 +2,8 @@ import pickle, gzip, torch, math, numpy as np, torch.nn.functional as F
 from pathlib import Path
 from IPython.core.debugger import set_trace
 from torch import nn, optim
-
+from tqdm import tqdm, tqdm_notebook, trange, tnrange
+from ipykernel.kernelapp import IPKernelApp
 from torch.utils.data import TensorDataset, DataLoader, Dataset
 from dataclasses import dataclass
 from typing import Any, Collection, Callable
@@ -80,10 +81,9 @@ def simple_cnn(actns, kernel_szs, strides):
     layers.append(PoolFlatten())
     return nn.Sequential(*layers)
 
-from tqdm import tqdm, tqdm_notebook, trange, tnrange
-from ipykernel.kernelapp import IPKernelApp
 
-def in_notebook(): return IPKernelApp.initialized()
+def in_notebook():
+    return IPKernelApp.initialized()
 
 def to_device(device, b): return [o.to(device) for o in b]
 default_device = torch.device('cuda')
