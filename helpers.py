@@ -60,7 +60,7 @@ def PoolFlatten():
 
 @dataclass
 class DatasetTfm(Dataset):
-    "
+    
     ds: Dataset
     tfm: Callable = None
 
@@ -138,3 +138,6 @@ class Learner():
         opt = opt_fn(self.model.parameters(), lr=lr)
         loss_fn = F.cross_entropy
         fit(epochs, self.model, loss_fn, opt, self.data.train_dl, self.data.valid_dl)
+        
+        
+        
